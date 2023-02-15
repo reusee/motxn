@@ -47,7 +47,7 @@ func (t *tidwallBTree[K, V]) NewTransaction() Transaction[K, V] {
 func (t *tidwallBTree[K, V]) NewReadOnlyTransaction() ReadOnlyTransaction[K, V] {
 	return &tidwallBTreeTransaction[K, V]{
 		tree:     t,
-		snapshot: t.tree.Load().Copy(),
+		snapshot: t.tree.Load(),
 	}
 }
 
